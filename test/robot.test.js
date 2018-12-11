@@ -67,8 +67,13 @@ describe('Robot', function () {
 
   describe('get network', function () {
     it('should return an array of all the ids the robot has met', function () {
-      const robot = new Robot()
-      expect(robot.network).to.deep.equal([])
+      const robotA = new Robot()
+      const robotB = new Robot()
+      expect(robotA.network).to.deep.equal([])
+
+      robotA.meet(robotB)
+      expect(robotA.network.length).to.equal(1)
+      expect(robotA.network[0]).to.equal(robotB.id)
       // add a test with the meet function
     })
   })
